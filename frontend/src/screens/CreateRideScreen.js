@@ -5,12 +5,14 @@ import Form from "react-bootstrap/Form";
 import DatePicker from "../components/DatePicker";
 import Button from "react-bootstrap/Button";
 import { BASE_URL } from "../constants/baseUrl";
+import { useNavigate } from "react-router-dom";
 
 const CreateRideScreen = () => {
   const [distance, setDistance] = useState(0);
   const [duration, setDuration] = useState(0);
   const [startTime, setStartTime] = useState(null);
   const [done, setDone] = useState(false);
+  const navigation = useNavigate()
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -22,6 +24,9 @@ const CreateRideScreen = () => {
         startTime,
       });
       setDone(true);
+      setTimeout(() => {
+        navigation('/')
+      }, 3000)
     } catch (err) {
       console.log(err);
     }
@@ -51,15 +56,16 @@ const CreateRideScreen = () => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Date de début de la ride</Form.Label>
-
-            <DatePicker value={startTime} setValue={setStartTime} />
+            <div>
+                <DatePicker value={startTime} setValue={setStartTime} />
+            </div>
           </Form.Group>
           <Button variant="primary" type="submit" onClick={onSubmit}>
             Soumettre
           </Button>
         </Form>
         {done && (
-          <div className="alert alert-success" role="alert">
+          <div className="alert alert-success my-5" role="alert">
             Votre ride a bien été soumise !
           </div>
         )}

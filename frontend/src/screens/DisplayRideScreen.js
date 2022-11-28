@@ -15,16 +15,24 @@ const DisplayRideScreen = () => {
     getTheListOfRides();
   }, []);
 
-  return (
-    <div>
-      <NavBar />
-      <div className="container my-5">
-        {rides.map((ride, index) => {
-          return <Ride key={index} ride={ride} />;
-        })}
+  if (rides.length === 0) {
+    return (
+      <div className="container spinner-border" role="status">
+        <span className="sr-only">Loading...</span>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div>
+        <NavBar />
+        <div className="container my-5">
+          {rides.map((ride, index) => {
+            return <Ride key={index} ride={ride} />;
+          })}
+        </div>
+      </div>
+    );
+  }
 };
 
 export default DisplayRideScreen;

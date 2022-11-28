@@ -10,7 +10,7 @@ export default function DatePicker({ value, setValue }) {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DateTimePicker
         renderInput={(props) => <TextField {...props} />}
-        label="DateTimePicker"
+        label="Choisir une date"
         value={value}
         formatDate={() => moment(new Date()).format("MM-DD-YYYY")}
         onChange={(newValue) => {
