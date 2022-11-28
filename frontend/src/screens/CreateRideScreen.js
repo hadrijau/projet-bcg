@@ -16,7 +16,6 @@ const CreateRideScreen = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log("wesh");
     try {
       await axios.post(`${BASE_URL}/api/rides`, {
         distance,
