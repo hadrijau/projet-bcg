@@ -11,3 +11,6 @@ This in an intern project for BCG.
 `cd ../`
 
 `npm run dev`
+
+Create a .env file at the root with the following data :
+MONGO_URI = 'paste-a-mongo-url'
