@@ -1,18 +1,21 @@
 import mongoose from "mongoose";
 
-const rideSchema = mongoose.Schema({
+const rideSchema = mongoose.Schema(
+  {
     distance: {
-        type: Number,
+      type: Number,
     },
     duration: {
-        type: Number,
+      type: Number,
     },
     startTime: {
-        type: Date,
-    }
-}, {
-    timestamps: true
-});
+      type: Date,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
 const Ride = mongoose.model("Ride", rideSchema);
 
